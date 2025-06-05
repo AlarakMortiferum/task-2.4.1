@@ -19,16 +19,6 @@ public class AuthTest {
 
     @BeforeEach
     void setup() {
-        ChromeOptions options = new ChromeOptions();
-
-        // Отключаем уведомления через prefs
-        Map<String, Object> prefs = new HashMap<>();
-        prefs.put("profile.default_content_setting_values.notifications", 2); // 2 = блокировать
-        options.setExperimentalOption("prefs", prefs);
-
-        options.addArguments("--disable-notifications"); // дополнительно
-
-        Configuration.browserCapabilities = options;
         Configuration.holdBrowserOpen = true;
 
         open("http://localhost:9999");

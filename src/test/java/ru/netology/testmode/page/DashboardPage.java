@@ -25,8 +25,12 @@ public class DashboardPage {
 
 
     public TransferPage selectCardToTransfer(String cardNumber) {
-        SelenideElement card = cards.findBy(text(cardNumber));
+        String lastFourDigits = cardNumber.substring(cardNumber.length() - 4);
+        String cardPartialText = "**** **** **** " + lastFourDigits;
+
+        SelenideElement card = cards.findBy(text(cardPartialText));
         card.$("button.button").click();
+
         return new TransferPage();
     }
 }

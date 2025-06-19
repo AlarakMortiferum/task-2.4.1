@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.testmode.data.DataHelper;
 import ru.netology.testmode.page.LoginPage;
 import ru.netology.testmode.page.TransferPage;
+import ru.netology.testmode.page.DashboardPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,7 +29,8 @@ public class AuthTest {
 
         var loginPage = new LoginPage();
         var verificationPage = loginPage.validLogin(authInfo);
-        var dashboardPage = verificationPage.validVerify(verificationCode);
+        var dashboardPage = verificationPage.verify(verificationCode);
+
 
         String firstCard = DataHelper.getFirstCardNumber();
         String secondCard = DataHelper.getSecondCardNumber();

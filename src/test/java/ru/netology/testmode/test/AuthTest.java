@@ -16,9 +16,7 @@ public class AuthTest {
     @BeforeEach
     void setup() {
         Configuration.holdBrowserOpen = true;
-        Configuration.headless = true; // ⬅️ по требованию CI
         Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 5000;
         open("http://localhost:9999");
     }
 
